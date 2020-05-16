@@ -27,3 +27,11 @@ app.use( cors() )
 
 
 module.exports = app
+
+
+// ZibaloVL - user mongo DB
+// NqOOIoxRLBayPoit - password
+//for app:
+// mongodb+srv://ZibaloVL:<password>@cluster0-nztcc.gcp.mongodb.net/test?retryWrites=true&w=majority
+// for compas:
+//mongodb+srv://ZibaloVL:<password>@cluster0-nztcc.gcp.mongodb.net/test?retryWrites=true&w=majority
