@@ -16,12 +16,12 @@ const positionRoutes = require('./routes/position')
 mongoose.connect( keys.mongoURL, {
     useNewUrlParser: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
   })
     .then( ()=> console.log( 'db connect' ) )
     .catch( error => console.log( 'error conecn db', error ) )
 //end conect db
-
 
 
 
