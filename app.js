@@ -53,4 +53,4 @@ module.exports = app
 //for app:
 // mongodb+srv://ZibaloVL:<password>@cluster0-nztcc.gcp.mongodb.net/test?retryWrites=true&w=majority
 // for compas:
-//mongodb+srv://ZibaloVL:<password>@cluster0-nztcc.gcp.mongodb.net/test?retryWrites=true&w=majority
+//mongodb+srv://ZibaloVL:NqOOIoxRLBayPoit@cluster0-nztcc.gcp.mongodb.net/test?retryWrites=true&w=majority
