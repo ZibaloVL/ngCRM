@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
+const password = require('passport')
 
 const controller = require ('../controllers/category')
 
-router.get( '/', controller.getAll )
+router.get( '/', password.authenticate( 'jwt',  {session: false }), controller.getAll )
 
 router.get( '/:id', controller.getById )
 

@@ -1,5 +1,5 @@
 const mongoose = require ( 'mongoose' )
-const Schema = mongoose.Shema
+const Schema = mongoose.Schema
 
 const positionSchema = new Schema({
     name: {
@@ -12,11 +12,11 @@ const positionSchema = new Schema({
     },
     category: {
         ref: 'categories',
-        type: Schema.Type.ObjectId
+        type: Schema.Types.ObjectId
     },
     user: {
         ref: 'users',
-        type: Schema.Type.ObjectId
+        type: Schema.Types.ObjectId
     }
 })
 
