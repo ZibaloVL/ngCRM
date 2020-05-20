@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
 
 const fileFilter = ( req, file, cb) => {
   console.log ('file_', file ) // mimetype???
-  if( file.mimetype === 'img/png' || file.mimetype === 'img/jpg' ) {
+  if( file.mimetype === 'image/png' || file.mimetype === 'image/jpg' ) {
     cb( null, true )
   } else {
     cb ( null, false )
@@ -27,5 +27,5 @@ const limits = {
 module.exports = multer({
   storage,
   fileFilter,
-  // limits
+  limits
 })
