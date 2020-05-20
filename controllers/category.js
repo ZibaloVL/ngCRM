@@ -34,10 +34,18 @@ module.exports.remove = async function ( req, res ) {
     errorHandler( error, res )
   } 
 }
-
+//  НЕ ПРОПИСЫВАЕТСЯ ФАЙЛ В REQ.FILE?????
 module.exports.create = async function ( req, res ) {
+  console.log('enter_______________________')
+  console.log('req.file_______', req.file )
+  const category = new Category ({
+    name: req.body.name,
+    user: req.user.id,
+    imageSrc: req.file ? req.file.path : ''
+  })  
   try {
-    
+    await category.save()
+    res.status(201).json( category )
   } catch (error) {
     errorHandler( error, res )
   } 
