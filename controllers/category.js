@@ -37,11 +37,11 @@ module.exports.remove = async function ( req, res ) {
 //  НЕ ПРОПИСЫВАЕТСЯ ФАЙЛ В REQ.FILE?????
 module.exports.create = async function ( req, res ) {
   console.log('enter_______________________')
-  console.log('req.file_______', req.body.file )
+  console.log('req.file_______', req.file )
   const category = new Category ({
     name: req.body.name,
     user: req.user.id,
-    imageSrc: req.body.file ? req.body.file.path : ''
+    imageSrc: req.file ? req.file.path : ''
   })  
   try {
     await category.save()

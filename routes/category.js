@@ -11,7 +11,7 @@ router.get( '/:id', controller.getById )
 
 router.delete( '/:id', controller.remove )
 
-router.post( '/', password.authenticate( 'jwt',  {session: false }), upload.single( 'img' ), controller.create )
+router.post( '/', password.authenticate( 'jwt',  {session: false }), upload.single( 'image' ), controller.create )
 
 router.patch( '/:id', upload.single( 'img' ), controller.update )
 
