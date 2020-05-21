@@ -22,6 +22,10 @@ app.use( bodyParser.json() )
 app.use( cors() )
 //  end make type of express
 
+// make static folder 
+app.use( '/uploads', express.static('uploads') )
+// end static folder 
+
 //connect db
 mongoose.connect( keys.mongoURL, {
   useNewUrlParser: true,
