@@ -8,5 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
+import 'materialize-css/dist/js/materialize.js';
+
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
