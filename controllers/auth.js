@@ -45,6 +45,7 @@ module.exports.register = async function (req, res) {
             res.status(409).json( { message: 'такой адресс уже существует'} )
         } else {
             const solt = bcrypt.genSaltSync(10)
+            // console.log('req.body', req.body)
             const user = new User({
                 email: req.body.email,
                 password: bcrypt.hashSync( req.body.password, solt )      
