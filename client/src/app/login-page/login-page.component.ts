@@ -28,8 +28,10 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       (params: Params) => {
         if (params.registered) {
           // тепреь можете зайти в системму
+          console.log('// тепреь можете зайти в системму');
         } else if (params.accessDenied) {
           // для начала авторизируйтесь в системме
+          console.log ('// для начала авторизируйтесь в системме');
         }
       }
     );
@@ -45,7 +47,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       .subscribe(
         () => {
           console.log('Login success');
-          this.router.navigate(['/overview']);
+          this.router.navigate(['/']);
         },
         error => {
           console.warn( error );
