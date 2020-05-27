@@ -43,5 +43,3 @@ export class AuthService {
     localStorage.clear();
   }
 }
-//  проверить вход.
-// проверить число символов в пароле

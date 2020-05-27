@@ -4,6 +4,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AuthLayoutComponent } from './shared/layouts/auth-layout/auth-layout.component';
 import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.component';
 import { RegistrPageComponent } from './registr-page/registr-page.component';
+import { AuthGuard } from './shared/classes/auth.guard';
 
 
 const routes: Routes = [
@@ -14,7 +15,10 @@ const routes: Routes = [
         { path: 'registr', component: RegistrPageComponent }
     ]
   },
-  { path: '', component: SiteLayoutComponent}
+  { path: '', component: SiteLayoutComponent,
+    canActivate: [AuthGuard],
+    children: []
+  }
 ];
 
 @NgModule({
