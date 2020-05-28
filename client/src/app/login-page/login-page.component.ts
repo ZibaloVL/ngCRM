@@ -3,6 +3,7 @@ import {  FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../shared/services/auth.service';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+import { MaterialService } from '../shared/classes/material.service';
 
 
 @Component({
@@ -27,11 +28,11 @@ export class LoginPageComponent implements OnInit, OnDestroy {
     this.route.queryParams.subscribe(
       (params: Params) => {
         if (params.registered) {
-          // тепреь можете зайти в системму
-          console.log('// тепреь можете зайти в системму');
+          MaterialService.toast('тепреь можете зайти в системму');
         } else if (params.accessDenied) {
-          // для начала авторизируйтесь в системме
-          console.log ('// для начала авторизируйтесь в системме');
+          MaterialService.toast('для начала авторизируйтесь в системме');
+        } else if (params.sessionFailed) {
+          MaterialService.toast('время сессии вышло! аторизируйтесь заново');
         }
       }
     );
@@ -51,6 +52,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
         },
         error => {
           console.warn( error );
+          MaterialService.toast(error.error.message);
           this.form.enable();
         }
       );
