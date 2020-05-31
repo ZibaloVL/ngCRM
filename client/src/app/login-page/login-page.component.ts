@@ -48,7 +48,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       .subscribe(
         () => {
           console.log('Login success');
-          this.router.navigate(['/']);
+          this.router.navigate(['/overview']);
         },
         error => {
           console.warn( error );
