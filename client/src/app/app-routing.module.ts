@@ -6,7 +6,10 @@ import { SiteLayoutComponent } from './shared/layouts/site-layout/site-layout.co
 import { RegistrPageComponent } from './registr-page/registr-page.component';
 import { AuthGuard } from './shared/classes/auth.guard';
 import { OverviewPageComponent } from './overview-page/overview-page.component';
-
+import { AnalitycsPageComponent } from './analitycs-page/analitycs-page.component';
+import { HistoryPageComponent } from './history-page/history-page.component';
+import { OrderPageComponent } from './order-page/order-page.component';
+import { CategoriesPageComponent } from './categories-page/categories-page.component';
 
 const routes: Routes = [
   { path: '', component: AuthLayoutComponent,
@@ -19,7 +22,11 @@ const routes: Routes = [
   { path: '', component: SiteLayoutComponent,
     canActivate: [AuthGuard],
     children: [
-      { path: 'overview', component: OverviewPageComponent}
+      { path: 'overview', component: OverviewPageComponent },
+      { path: 'analytics', component: AnalitycsPageComponent },
+      { path: 'history', component: HistoryPageComponent },
+      { path: 'order', component: OrderPageComponent },
+      { path: 'categories', component: CategoriesPageComponent },
     ]
   }
 ];

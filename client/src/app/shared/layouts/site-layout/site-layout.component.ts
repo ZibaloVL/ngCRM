@@ -12,7 +12,7 @@ export class SiteLayoutComponent implements  AfterViewInit {
   @ViewChild('floating') floatingRef: ElementRef;
   lincks = [
     { url: '/overview', name: 'Обзор' },
-    { url: '/analitics', name: 'Аналитика' },
+    { url: '/analytics', name: 'Аналитика' },
     { url: '/history', name: 'История' },
     { url: '/order', name: 'Добавить заказ' },
     { url: '/categories', name: 'Ассортимент' }
