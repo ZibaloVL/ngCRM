@@ -9,18 +9,18 @@
 <div class="row"
   *ngIf="categories$|async as categories; else loader"
 >
-  <h2> categories.length__{{categories.length}}</h2>
+  <h2> categories.length__{{categories.categories.length}}</h2>
   
   <div class="col s12">
       <div 
         class="collection"
-        *ngIf="categories.length !== 0; else empty"
+        *ngIf="categories.categories.length !== 0; else empty"
       >
-      <!--
+      
           <a href="#!" class="collection-item"
-          *ngFor="let category  of categories"
+          *ngFor="let category  of categories.categories"
           >{{ category.name }}</a>
-      -->
+      
         
       </div>
       <ng-template #empty>
