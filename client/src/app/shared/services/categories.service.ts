@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Category } from '../interfaces';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/index';
 
 @Injectable({
   providedIn: 'root'
