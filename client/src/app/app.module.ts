@@ -16,6 +16,8 @@ import { HistoryPageComponent } from './history-page/history-page.component';
 import { OrderPageComponent } from './order-page/order-page.component';
 import { CategoriesPageComponent } from './categories-page/categories-page.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
+import { CategoriesFormComponent } from './categories-page/categories-form/categories-form.component';
+import { PositionFormComponent } from './categories-page/categories-form/position-form/position-form.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,8 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
     OrderPageComponent,
     CategoriesPageComponent,
     LoaderComponent,
+    CategoriesFormComponent,
+    PositionFormComponent,
   ],
   imports: [
     BrowserModule,
