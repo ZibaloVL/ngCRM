@@ -6,7 +6,7 @@ const errorHandler = require('../utils/errorHandler')
 module.exports.getAll = async function ( req, res ) {
   try {
     const categories = await Category.find({
-//      user: req.user.id
+      user: req.user.id
     })
     res.status(200).json({ categories })    
   } catch (error) {
@@ -58,6 +58,7 @@ module.exports.update = async function ( req, res ) {
   if ( req.file) {
     updated.imageSrc = req.file.path
   }
+  console.log( 'updated___', updated )
   try {
     const category = await Category.findByIdAndUpdate(
       req.params.id,
@@ -66,6 +67,7 @@ module.exports.update = async function ( req, res ) {
     )
     res.status(200).json( category )
   } catch (error) {
+    console.log( 'ошибка обновления категории' )
     errorHandler( error, res )
   } 
 }

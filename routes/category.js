@@ -13,6 +13,6 @@ router.delete( '/:id', password.authenticate( 'jwt',  {session: false }), contro
 
 router.post( '/', password.authenticate( 'jwt',  {session: false }), upload.single( 'image' ), controller.create )
 
-router.patch( '/:id', password.authenticate( 'jwt',  {session: false }), upload.single( 'img' ), controller.update )
+router.patch( '/:id', password.authenticate( 'jwt',  {session: false }), upload.single( 'image' ), controller.update )
 
 module.exports = router
