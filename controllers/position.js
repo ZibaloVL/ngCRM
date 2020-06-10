@@ -3,14 +3,17 @@ const errorHandler = require( '../utils/errorHandler' )
 
 module.exports.getByCategoryId = async function ( req, res ) {
   try {
-    const position = await Position.find(
+    const positions = await Position.find(
       {
         category: req.params.categoryId,
         user: req.user.id
       }
     )
-    res.status(200).json( position )
+    console.log ('before _res')
+    res.status(200).json( positions )
+    // при отсутствии коллекции скидывает на ошибку и портит frontEnd
   } catch (error) {
+    console.log('error!!!!!')
     errorHandler( res, error )
   }
 }
