@@ -104,5 +104,19 @@ export class PositionFormComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  onDeletePosition( position: Position) {  }
+  onDeletePosition( event: Event, position: Position) {
+    event.stopPropagation();
+    const destroy = window.confirm( `Вы действительно хотите удалить ${position.name}?`);
+    if ( destroy ) {
+      this.positionsService.delete(position)
+    .subscribe(
+      mess => {
+        const indx = this.positions.findIndex( pos => pos._id === position._id)
+        this.positions.splice( indx, 1 );
+        MaterialService.toast('позиция удалена');
+      },
+      error => MaterialService.toast( error.error.message)
+    );
+    }
+   }
 }
