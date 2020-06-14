@@ -11,7 +11,6 @@ module.exports.getByCategoryId = async function ( req, res ) {
     )
     console.log ('before _res')
     res.status(200).json( positions )
-    // при отсутствии коллекции скидывает на ошибку и портит frontEnd
   } catch (error) {
     console.log('error!!!!!')
     errorHandler( res, error )
@@ -20,8 +19,8 @@ module.exports.getByCategoryId = async function ( req, res ) {
 
 module.exports.create = async function( req, res ) {
   try {
-    const position = new Position ( {
-      name: req.body.position,
+    const position = await new Position ( {
+      name: req.body.name,
       cost: req.body.cost,
       category: req.body.category,
       user: req.user.id
@@ -46,7 +45,7 @@ module.exports.remove = async function( req, res ) {
 module.exports.update = async function( req, res ) {
   try {
     const position =await  Position.findOneAndUpdate( 
-      { _id: req.user.id },
+      { _id: req.params.id },
       { $set: req.body },
       { new: true }
     )
