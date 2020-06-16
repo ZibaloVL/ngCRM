@@ -111,7 +111,7 @@ export class PositionFormComponent implements OnInit, AfterViewInit, OnDestroy {
       this.positionsService.delete(position)
     .subscribe(
       mess => {
-        const indx = this.positions.findIndex( pos => pos._id === position._id)
+        const indx = this.positions.findIndex( pos => pos._id === position._id);
         this.positions.splice( indx, 1 );
         MaterialService.toast('позиция удалена');
       },
