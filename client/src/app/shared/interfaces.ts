@@ -22,3 +22,17 @@ export interface Position {
   _id?: string;
   quantity?: number;
 }
+
+export interface Order {
+  date?: Date;
+  order?: Order;
+  _id?: string;
+  list: OrderPosition[];
+}
+
+export interface OrderPosition {
+  _id?: string;
+  name: string;
+  cost: number;
+  quantity: number;
+}
