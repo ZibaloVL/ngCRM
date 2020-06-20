@@ -44,5 +44,8 @@ export class OrderService {
     this.computePrice();
   }
 
-  clear(){}
+  clear(){
+    this.list = [];
+    this.price = 0;
+  }
 }
