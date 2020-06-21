@@ -3,6 +3,7 @@ const errorHandler = require('../utils/errorHandler')
 
 
 module.exports.getAll = async function (req, res ) {
+  console.log( 'req.query', req.query)
   try {
       const query = {
         user: req.user.id
@@ -19,7 +20,8 @@ module.exports.getAll = async function (req, res ) {
       if ( req.query.order ) {
         query.order = + req.query.order
       }
-      const orders = await  Order.find ( { query })
+      console.log('query_____', query )
+      const orders = await  Order.find ( query )
         .sort({
           date: -1
         })
@@ -38,9 +40,7 @@ module.exports.create = async function ( req, res ) {
       const lastOrder = await Order
         .findOne( { user: req.user.id } )
         .sort( { date: -1 })
-
       const maxOrder = lastOrder ? lastOrder.order : 0
-        
       const order = await new Order({
         list: req.body.list,
         user: req.user.id,
