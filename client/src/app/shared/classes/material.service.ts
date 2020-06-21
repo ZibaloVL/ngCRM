@@ -20,7 +20,10 @@ export class MaterialService {
   static updateTextInputs() {
     M.updateTextFields(); // debag error  of text fields
   }
-  static initModal( ref ): MaterialService {
+  static initModal( ref: ElementRef ): MaterialInstance {
     return  M.Modal.init(ref.nativeElement);
+  }
+  static initToltip(ref: ElementRef): MaterialInstance {
+    return M.Tooltip.init(ref.nativeElement);
   }
 }
