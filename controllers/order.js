@@ -20,7 +20,6 @@ module.exports.getAll = async function (req, res ) {
       if ( req.query.order ) {
         query.order = + req.query.order
       }
-      console.log('query_____', query )
       const orders = await  Order.find ( query )
         .sort({
           date: -1

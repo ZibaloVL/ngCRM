@@ -16,6 +16,9 @@ export class HistoryPageComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('tooltip') tooltipRef: ElementRef;
   tooltip: MaterialInstance;
   public isFilterVisible = false;
+  loading = false;
+  reloading = false;
+  noMoreOrders = false;
 
   orders: Order[] = [];
 
@@ -28,6 +31,7 @@ export class HistoryPageComponent implements OnInit, AfterViewInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    this.reloading = true;
     this.fetch();
   }
 
@@ -38,11 +42,22 @@ export class HistoryPageComponent implements OnInit, AfterViewInit, OnDestroy {
     };
     this.oSub = this.ordersService.fetch( params )
       .subscribe( (orders) => {
-        this.orders = orders;
+        this.orders = this.orders.concat( orders );
+        this.noMoreOrders = orders.length  < STEP;
+        if (this.noMoreOrders){
+          MaterialService.toast( 'показаны все заказы' );
+        }
+        this.loading = false;
+        this.reloading = false;
       })
     ;
   }
 
+  loadMore() {
+    this.loading = true;
+    this.offset += STEP;
+    this.fetch();
+  }
 
   ngAfterViewInit(): void {
     this.tooltip = MaterialService.initToltip( this.tooltipRef );
