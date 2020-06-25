@@ -13,6 +13,7 @@
 </div>
 <app-history-filter
   *ngIf="isFilterVisible"
+  (onFilter)="applyFilter($event)"  
 ></app-history-filter>
 <div *ngIf="!reloading; else reloadingBlock">
   <div *ngIf="orders.length > 0; else emptyBlock">

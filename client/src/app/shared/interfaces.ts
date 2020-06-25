@@ -36,3 +36,9 @@ export interface OrderPosition {
   cost: number;
   quantity: number;
 }
+
+export interface Filter {
+  start?: Date;
+  end?: Date;
+  order?: number;
+}

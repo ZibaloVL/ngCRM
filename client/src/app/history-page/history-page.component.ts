@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { MaterialInstance, MaterialService } from '../shared/classes/material.service';
 import { OrdersService } from '../shared/services/orders.service';
-import { Order } from '../shared/interfaces';
+import { Order, Filter } from '../shared/interfaces';
 import { Subscription } from 'rxjs';
 
 
@@ -65,6 +65,10 @@ export class HistoryPageComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     this.tooltip.destroy();
     this.oSub.unsubscribe();
+  }
+
+  applyFilter( filter: Filter) {
+
   }
 
 }
