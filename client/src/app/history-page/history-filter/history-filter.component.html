@@ -27,5 +27,6 @@
   <button 
     class="btn waves-effect wavers-light btn-small"
     (click)="submitFilter()"
+    [disabled]="!isValid"
   >Применить фильтр</button>
 </div>

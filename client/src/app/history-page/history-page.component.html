@@ -2,7 +2,10 @@
   <h4>История заказов</h4>
   <button 
     class="btn btn-small" 
-    [ngClass]="{ 'active': isFilterVisible }"
+    [ngClass]="{ 
+      'active': isFilterVisible,
+      'red': isFiltered()
+    }"
     data-tooltip="Открыть фильтр"
     data-position="left"
     (click)="isFilterVisible = !isFilterVisible"

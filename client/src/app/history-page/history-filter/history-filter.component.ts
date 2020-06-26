@@ -16,8 +16,12 @@ export class HistoryFilterComponent implements OnInit, OnDestroy, AfterViewInit 
   @ViewChild('end') endRef: ElementRef;
 
   order: number;
+
   start: MaterialDatepicker;
   end: MaterialDatepicker;
+
+  isValid = true;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -32,7 +36,13 @@ export class HistoryFilterComponent implements OnInit, OnDestroy, AfterViewInit 
     );
   }
 
-  validate() {}
+  validate() {
+    if ( !this.start.date || !this.end.date ) {
+      this.isValid = true;
+      return;
+    }
+    this.isValid = this.end > this.start;
+  }
 
   ngOnDestroy() {
     this.start.destroy();
@@ -44,6 +54,13 @@ export class HistoryFilterComponent implements OnInit, OnDestroy, AfterViewInit 
 
     if ( this.order ) {
       filter.order = this.order;
+    }
+    if ( this.start.date ) {
+      filter.start = this.start.date;
+    }
+
+    if ( this.end.date ) {
+      filter.end = this.end.date;
     }
 
     this.onFilter.emit( filter );
