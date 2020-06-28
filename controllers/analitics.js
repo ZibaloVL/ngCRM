@@ -50,14 +50,14 @@ module.exports.overview = async function ( req, res ) {
       gain: {
         percent: Math.abs( + gainPercent),
         compare: Math.abs( + compareGain ),
-        yessterday: + yerstadayGain,
-        isHigher: + gainPercent
+        yesterday: + yerstadayGain,
+        isHigher: + gainPercent>0
       },
       orders: {
         percent: Math.abs( + ordersPercent),
         compare: Math.abs( + compareNumber ),
-        yessterday: + yerstadayOrdersNumber,
-        isHigher: + ordersPercent
+        yesterday: + yerstadayOrdersNumber,
+        isHigher: + ordersPercent>0
       }
     }     
     
