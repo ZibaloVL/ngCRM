@@ -56,3 +56,13 @@ export interface  OverviewPageItem {
 }
 
 
+export interface AnalyticPage {
+  average: number;
+  chart: AnalytivChartNomber [];
+}
+
+export interface AnalytivChartNomber {
+  label: string;
+  order: number;
+  gain: number;
+}
