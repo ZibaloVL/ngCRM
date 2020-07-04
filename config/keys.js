@@ -1,5 +1,5 @@
-module.exports  = {
-  mongoURL : `mongodb+srv://ZibaloVL:NqOOIoxRLBayPoit@cluster0-nztcc.gcp.mongodb.net/db_CRM`,
-  jwt: 'dev_token'
+if ( process.env.NODE_ENV === 'production') {
+  module.exports( './keys.prod' )
+} else {
+  module.exports( './keys.dev' )
 }
-// MONGODB_URI: `mongodb+srv://fotoroom:kuEifC50kGaGa0pN@nodeshoplearn-fif3b.gcp.mongodb.net/shopRepiat`,
