@@ -1,4 +1,5 @@
 const express = require ('express')
+const path = require ( 'path' )
 const bodyParser = require ('body-parser') // for parser request
 const cors = require ('cors') //  если клиент на другом домене дает воз можность отвечать
 const morgan = require ('morgan') // логировать красивее сервер???
@@ -52,7 +53,12 @@ require('./middleware/password')( password )
     app.use('/api/position', positionRoutes)
 
 // end con routers
-
+if( process.env.NODE_ENV === 'production') {
+  app.use( express.static( 'client/dist/client' ) )
+  app.get( '*', ( req, res) => {
+    res.sendFile( path.resolve(__dirname, 'client', 'dist', 'client', 'index.html'))
+  })
+}
 
 module.exports = app
 
